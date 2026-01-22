@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Game Store Design System - Deep Navy/Purple Theme */
+
+@layer base {
+  :root {
+    /* Core backgrounds - Deep navy/purple palette */
+    --background: 244 54% 14%;
+    --foreground: 0 0% 100%;
+
+    /* Card surfaces */
+    --card: 244 50% 18%;
+    --card-foreground: 0 0% 100%;
+
+    /* Popover/dropdown */
+    --popover: 244 50% 18%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary - Vibrant gradient accent */
+    --primary: 280 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Lighter navy */
+    --secondary: 244 45% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Subtle text */
+    --muted: 244 40% 30%;
+    --muted-foreground: 230 20% 70%;
+
+    /* Accent colors */
+    --accent: 160 84% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 244 40% 25%;
+    --input: 244 40% 25%;
+    --ring: 280 70% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom game store colors */
+    --discount: 15 90% 55%;
+    --cashback: 160 84% 45%;
+    --region-global: 200 80% 55%;
+    --region-europe: 45 90% 55%;
+    --wishlist: 340 80% 60%;
+    
+    /* Platform colors */
+    --platform-ea: 15 90% 55%;
+    --platform-xbox: 120 60% 45%;
+    --platform-playstation: 220 80% 55%;
+    --platform-steam: 215 25% 35%;
+    --platform-nintendo: 0 75% 55%;
+    --platform-rockstar: 45 90% 55%;
+    --platform-gog: 280 60% 50%;
+
+    /* Sidebar (if needed) */
+    --sidebar-background: 244 54% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 280 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 244 45% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 244 40% 20%;
+    --sidebar-ring: 280 70% 60%;
+  }
+
+  .dark {
+    /* Same as light for this dark-first design */
+    --background: 244 54% 14%;
+    --foreground: 0 0% 100%;
+    --card: 244 50% 18%;
+    --card-foreground: 0 0% 100%;
+    --popover: 244 50% 18%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 280 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 244 45% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 244 40% 30%;
+    --muted-foreground: 230 20% 70%;
+    --accent: 160 84% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 244 40% 25%;
+    --input: 244 40% 25%;
+    --ring: 280 70% 60%;
+    --sidebar-background: 244 54% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 280 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 244 45% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 244 40% 20%;
+    --sidebar-ring: 280 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .game-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+    @apply hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20;
+  }
+
+  .cashback-badge {
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold;
+    background: hsl(var(--cashback));
+    color: hsl(var(--background));
+  }
+
+  .platform-badge {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium;
+    background: hsl(var(--secondary));
+  }
+
+  .region-badge {
+    @apply text-xs font-bold tracking-wide;
+  }
+
+  .region-global {
+    color: hsl(var(--region-global));
+  }
+
+  .region-europe {
+    color: hsl(var(--region-europe));
+  }
+
+  .discount-tag {
+    color: hsl(var(--discount));
+    @apply font-semibold;
+  }
+
+  .original-price {
+    @apply line-through text-muted-foreground text-sm;
+  }
+
+  .current-price {
+    @apply text-xl font-bold text-foreground;
+  }
+
+  .search-input {
+    @apply w-full bg-white text-gray-900 rounded-lg px-4 py-3 pl-12;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(280, 70%, 60%), hsl(200, 80%, 55%), hsl(160, 84%, 45%));
+  }
+
+  .logo-gradient {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #1dd1a1 75%, #ff6b6b 100%);
+  }
+}
